@@ -1,11 +1,11 @@
 <template>
   <div class="layout-demo-1-vue">
     <Layout>
-      <HHeader>
-      <div class="nav-b" style="width:1200px;height:64px;margin:auto;padding-top:10px;display:flex ">
+      <HFooter>
+      <div class="nav-b" >
         <Menu :datas="data" mode="horizontal"  @click=to></Menu>
       </div>
-      </HHeader>
+      </HFooter>
     </Layout>
   </div>
 </template>
@@ -62,7 +62,13 @@ export default {
      height: 64px;
      text-align: center;
      .nav-b{
-       
+      width: 1200px;
+      height: 64px;
+      padding-top:10px;
+      margin: auto;
+      /deep/.h-menu-li{
+        margin: 0 84px;
+      }
      }
   }
 

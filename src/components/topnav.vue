@@ -2,9 +2,9 @@
   <div class="layout-demo-1-vue">
     <Layout>
       <HHeader>
-        <img src="../assets/avatar.jpg" alt="">
-      <div class="nav-a" style="width:1200px;height:64px;margin:auto; padding-top:10px">
-        <Menu className="caidan" :datas="data" mode="horizontal"></Menu>
+      <img src="../assets/avatar.jpg" alt="">
+      <div class="nav-a">
+        <Menu :datas="data" mode="horizontal"></Menu>
       </div>
       </HHeader>
           <!-- 轮播图 -->
@@ -87,12 +87,21 @@ export default {
      line-height: 64px;
      height: 64px;
      text-align: center;
-     img{
+       img{
     display: block;
     float: left;
     margin-top: 10px;
-    margin-left: 380px;
+    margin-left: 300px;
     }
+    .nav-a{
+      width: 1200px;
+      height: 64px;
+      padding-top:10px;
+      margin: auto;
+      /deep/.h-menu-li{
+        margin:0  94px;
+      }
+     }
   }
 }
 </style>
