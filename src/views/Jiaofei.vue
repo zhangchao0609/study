@@ -9,16 +9,16 @@
       <h2>缴费信息登记表</h2>
      <div class="message">
       <Form :label-width="110" :model="data" ref="form" :rules="validRules" showErrorTip>
-      <FormItem label="姓名" prop="name">
+      <FormItem label="姓名" prop="name" :required="required">
         <input type="text" v-model="data.name" />
       </FormItem>
-      <FormItem label="手机号" prop="mobile">
+      <FormItem label="手机号" prop="mobile" :required="required">
         <input type="text" v-model="data.mobile" />
       </FormItem>
-       <FormItem label="身份证号" prop="idnumber">
+       <FormItem label="身份证号" prop="idnumber" :required="required">
         <input type="text" v-model="data.idnumber" />
       </FormItem>
-      <FormItem label="公司名称" prop="company">
+      <FormItem label="公司名称" prop="company" :required="required">
         <input type="text" v-model="data.company" />
       </FormItem>
       <FormItem>
@@ -55,6 +55,7 @@ export default {
       // 匹配规则
       validRules: {
         rules: {
+          // required: ['name', 'mobile', 'idnumber', 'company'],
           name: {
             valid: {
               pattern: /^[a-zA-Z\u4E00-\u9FA5\uf900-\ufa2d·s]{2,20}$/,
@@ -73,8 +74,7 @@ export default {
               pattern: /^[a-zA-Z\u4E00-\u9FA5\uf900-\ufa2d·s]{2,20}$/,
               message: '公司名称格式不正确'
             }
-          },
-          required: ['name', 'mobile', 'idnumber', 'company']
+          }
         }
       },
       // 二维码配置
