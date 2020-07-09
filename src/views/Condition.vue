@@ -1,7 +1,9 @@
 <template>
   <div class='container'>
-    <!--  顶部导航+轮播图 -->
+    <!--  顶部导航 -->
     <topnav></topnav>
+    <!-- 轮播 -->
+    <lunbo></lunbo>
     <!-- 内容 -->
     <div class="content">
         <h2>职工技能提升补助申请须知</h2>
@@ -23,6 +25,7 @@
 <script>
 import topnav from '../components/topnav'
 import bottomnav from '../components/bottom.vue'
+import lunbo from '../components/lunbo.vue'
 export default {
   data () {
     return {
@@ -31,7 +34,8 @@ export default {
   },
   components: {
     topnav,
-    bottomnav
+    bottomnav,
+    lunbo
   }
 }
 </script>

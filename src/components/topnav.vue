@@ -2,15 +2,11 @@
   <div class="layout-demo-1-vue">
     <Layout>
       <HHeader>
-      <img src="../assets/avatar.jpg" alt="">
       <div class="nav-a">
+        <img src="../assets/avatar.jpg" alt="">
         <Menu :datas="data" mode="horizontal"></Menu>
       </div>
       </HHeader>
-          <!-- 轮播图 -->
-    <div class="image">
-     <Carousel  :datas="params" :height="400"   pageTheme="circle" @click=to ></Carousel>
-    </div>
     </Layout>
   </div>
 </template>
@@ -48,27 +44,6 @@ export default {
           icon: 'h-icon-user',
           nativeLink: true
         }
-      ],
-      // 轮播图
-      params: [
-        {
-          title: 'Page 1',
-          link: true,
-          image: 'https://lokeshdhakar.com/projects/lightbox2/images/image-4.jpg'
-        },
-        {
-          title: 'Page 2',
-          link: 'http://www.baidu.com',
-          image: 'https://lokeshdhakar.com/projects/lightbox2/images/image-5.jpg'
-        },
-        {
-          title: 'Page 3',
-          image: 'https://lokeshdhakar.com/projects/lightbox2/images/image-6.jpg'
-        },
-        {
-          title: 'Page 4',
-          image: 'https://lokeshdhakar.com/projects/lightbox2/images/image-3.jpg'
-        }
       ]
     }
   },
@@ -88,20 +63,20 @@ export default {
      height: 64px;
      text-align: center;
        img{
-    display: block;
-    float: left;
-    margin-top: 10px;
-    margin-left: 300px;
-    }
-    .nav-a{
-      width: 1200px;
-      height: 64px;
-      padding-top:10px;
-      margin: auto;
-      /deep/.h-menu-li{
-        margin:0  94px;
-      }
-     }
+        display: block;
+        float: left;
+        margin-left: -48px;
+
+        }
+      .nav-a{
+        width: 1200px;
+        height: 64px;
+        padding-top:10px;
+        margin: auto;
+        /deep/.h-menu-li{
+          margin:0  94px;
+              }
+          }
   }
 }
 </style>

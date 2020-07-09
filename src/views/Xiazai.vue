@@ -2,6 +2,8 @@
   <div class='container'>
     <!-- 顶部导航+轮播图 -->
     <topnav></topnav>
+    <!-- 轮播图 -->
+    <lunbo></lunbo>
     <!-- 资料下载内容 -->
     <div class="z">
       <div class="zl">
@@ -51,6 +53,7 @@
 
 <script>
 // 导入组件
+import lunbo from '../components/lunbo.vue'
 import topnav from '../components/topnav'
 import bottomnav from '../components/bottom.vue'
 export default {
@@ -60,7 +63,8 @@ export default {
   },
   components: {
     topnav,
-    bottomnav
+    bottomnav,
+    lunbo
   }
 }
 </script>

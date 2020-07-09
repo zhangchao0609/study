@@ -1,8 +1,8 @@
 <template>
   <div class='container'>
-    <!-- 顶部导航+轮播图 -->
-    <topnav></topnav>
-
+  <!-- 顶部导航 -->
+  <topnav></topnav>
+  <lunbo></lunbo>
   <!--  -->
   <div class="aaa">
   <!-- 数据图 -->
@@ -61,7 +61,7 @@
     </div>
   </div>
    <!-- 机构优势 -->
-  <div class="footer">
+  <div class="institution">
     <p class="f-top">机构优势</p>
     <hr>
      <div class="f-content">
@@ -108,6 +108,7 @@
 // 导入组件
 import topnav from '../components/topnav'
 import bottomnav from '../components/bottom.vue'
+import lunbo from '../components/lunbo.vue'
 export default {
   data () {
     return {
@@ -115,7 +116,8 @@ export default {
   },
   components: {
     topnav,
-    bottomnav
+    bottomnav,
+    lunbo
   }
 }
 </script>
@@ -205,7 +207,7 @@ padding-top: 35px;
   }
 }
 // 机构优势
-.footer{
+.institution{
   width: 100%;
   height: 300px;
   padding-top: 70px;
