@@ -17,29 +17,9 @@
                 <span >名称</span>
                 <span>文件类型</span>
               </div>
-              <p>
-                <span>高炉炼铁工 职业标准</span>
-                <span>PDF类型</span>
-              </p>
-              <p>
-                <span>高炉炼铁工 职业标准</span>
-                <span>PDF类型</span>
-              </p>
-              <p>
-                <span>高炉炼铁工 职业标准</span>
-                <span>PDF类型</span>
-              </p>
-              <p>
-                <span>高炉炼铁工 职业标准</span>
-                <span>PDF类型</span>
-              </p>
-              <p>
-                <span>高炉炼铁工 职业标准</span>
-                <span>PDF类型</span>
-              </p>
-              <p>
-                <span>高炉炼铁工 职业标准</span>
-                <span>PDF类型</span>
+              <p v-for="item in download" :key="item.id">
+                <span>{{item.name}}</span>
+                <span>{{item.type}}</span>
               </p>
           </div>
         </div>
@@ -59,12 +39,26 @@ import bottomnav from '../components/bottom.vue'
 export default {
   data () {
     return {
+      // 文件名称和类型
+      download: []
     }
   },
   components: {
     topnav,
     bottomnav,
     lunbo
+  },
+  created () {
+    // 渲染文件名字跟类型
+    this.getName()
+  },
+  methods: {
+    getName () {
+      this.$axios.get('/getName').then((res) => {
+        console.log(res.data)
+        this.download = res.data
+      })
+    }
   }
 }
 </script>

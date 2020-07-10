@@ -8,13 +8,19 @@
     <div class="content">
         <h2>职工技能提升补助申请须知</h2>
         <div class="qy">
-          <p class="active">企业职员申请地点</p>
-          <p>企业职员申请条件</p>
-          <p>企业职员申请注意事项</p>
-        </div>
-        <div class="qy-content">
-          <p>1 在本省市,济南市,淄博市,枣庄市,东营市,烟台市,廊坊市,济宁市泰安市,威海市,日照市临汾市,湖市,德州市,聊城市,滨州市,参加失业保险的员工,登录参保地级人力资源社会保障部门门户网站或省级人力资资源社会保障厅门户网站.办理网上申请.</p>
-          <p>2 青岛市参加失业保障的企业员工,登录青岛市人力资源社会保障部门门户网站,进行网站上申请</p>
+            <div class="title">
+            <Row v-height="50">
+              <Cell>
+                <p :class="{'active':currentSort==index}"  v-for="(item,index) in appiy"  :key="index" @click="conTent(item)">{{item.title}}</p>
+              </Cell>
+            </Row>
+            </div>
+            <Row  v-height="300">
+                <Cell class="cell" width='24' v-show="showIndex===item.id" v-for="item in appiy" :key="item.id">
+                  {{item.content}}
+                  </Cell>
+            </Row>
+
         </div>
     </div>
     <!-- 底部导航 -->
@@ -29,13 +35,35 @@ import lunbo from '../components/lunbo.vue'
 export default {
   data () {
     return {
-
+      showIndex: 1,
+      // 高亮效果
+      currentSort: 0,
+      // 申请数据
+      appiy: []
     }
   },
   components: {
     topnav,
     bottomnav,
     lunbo
+  },
+  created () {
+    this.appIy()
+  },
+  methods: {
+    // 获取企业申请数据
+    appIy () {
+      this.$axios.get('/getAppiy').then((res) => {
+        console.log(res)
+        this.appiy = res.data
+      })
+    },
+    // 点击切换
+    conTent (item) {
+      console.log(item)
+      this.currentSort = item.id - 1
+      this.showIndex = item.id
+    }
   }
 }
 </script>
@@ -54,40 +82,41 @@ export default {
   }
   .qy{
     width: 1200px;
-    display: flex;
-    height: 45px;
-    line-height: 45px;
+    height: 500px;
     margin:auto;
     margin-top: 40px;
-    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
-    .active{
-      background-color: black;
-      color: white;
+    .title{
+      width: 1200px;
+       box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.1);
+       height: 50px;
+       line-height: 50px;
+       box-sizing: border-box;
+         .h-col{
+         display: flex;
+         font-size: 18px;
+         text-align: center;
+         .active{
+          background-color: black;
+          color: white;
+        }
+         p{
+           flex: 1;
+           margin: 0;
+         }
+       }
     }
-    p{
-      flex: 1;
-      font-size: 16px;
-      font-weight: 600;
-      text-align: center;
-      margin: 0 auto;
-    }
-  }
-  .qy-content{
-    width: 1200px;
-    height: 250px;
+    .h-row{
+        background-color: white;
+        margin-top: 50px;
+        .cell{
+          line-height: 50px;
+          text-align: center;
+       padding: 60px 30px 0;
+       font-size: 16px;
 
-    margin: 90px auto 0;
-    background-color: white;
-    padding-top: 40px;
-    p{
-      height: 35px;
-      line-height: 35px;
-      font-size: 16px;
-      text-align: center;
-      padding: 25px;
-      box-sizing: border-box;
+        }
+        }
     }
   }
-}
 </style>
